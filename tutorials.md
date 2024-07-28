@@ -836,22 +836,33 @@ jsPsych.run(timeline);
 
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> <!-- 定义文档类型和语言为英语 -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>集中&放松实验</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/jspsych@7.3.4"></script>
-    <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.2.0"></script>
-    <script src="https://unpkg.com/@jspsych/plugin-survey-text@1.1.3"></script>
-    <script src="https://unpkg.com/@jspsych/plugin-html-slider-response@1.1.3"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <meta charset="UTF-8"> <!-- 设置文档字符编码为UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 设置视口，以适应不同设备的宽度 -->
+    <title>集中&放松实验</title> <!-- 设置网页标题 -->
+    <link rel="stylesheet" href="styles.css"> <!-- 引入外部CSS文件，定义样式 -->
+
+    <!-- 引入jsPsych库及其插件 -->
+    <script src="https://unpkg.com/jspsych@7.3.4"></script> <!-- 引入jsPsych库 -->
+    <link href="https://unpkg.com/jspsych@7.3.4/css/jspsych.css" rel="stylesheet" type="text/css" /> <!-- 引入jsPsych的CSS样式 -->
+    
+    <!-- 引入各个jsPsych插件 -->
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.3"></script> <!-- 引入HTML键盘响应插件 -->
+    <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.2.0"></script> <!-- 引入HTML按钮响应插件 -->
+    <script src="https://unpkg.com/@jspsych/plugin-survey-text@1.1.3"></script> <!-- 引入调查文本插件 -->
+    <script src="https://unpkg.com/@jspsych/plugin-audio-button-response@1.2.0"></script> <!-- 引入音频按钮响应插件 -->
+    <script src="https://unpkg.com/@jspsych/plugin-instructions@1.1.4"></script> <!-- 引入指令插件 -->
+    <script src="https://unpkg.com/@jspsych/plugin-preload@1.1.3"></script> <!-- 引入预加载插件 -->
+    <script src="https://unpkg.com/@jspsych/plugin-html-slider-response@1.1.3"></script><!-- 引入HTML滑动条插件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script> <!-- 引入用于处理Excel文件的库 -->
 </head>
 <body>
-    <script src="script.js"></script>
+    <!-- 确保在jsPsych库之后加载脚本 -->
+    <script src="script.js"></script> <!-- 引入外部JavaScript文件，定义实验逻辑 -->
 </body>
 </html>
+
 ```
 
 ##### CSS 文件 (`styles.css`)
@@ -859,119 +870,139 @@ jsPsych.run(timeline);
 ```css
 /* 重置一些默认样式 */
 body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    margin: 0; /* 去除默认外边距 */
+    padding: 0; /* 去除默认内边距 */
+    width: 100%; /* 设置宽度为100% */
+    height: 100%; /* 设置高度为100% */
+    font-family: Arial, sans-serif; /* 设置字体为Arial，若不支持则使用sans-serif */
+    display: flex; /* 使用Flex布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    background-color: #f0f0f0; /* 设置背景颜色 */
 }
 
-/* 定义主体样式 */
+/* 整个body的Flex容器 */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* 使用Flex布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
 }
 
-/* jsPsych HTML 按钮响应的样式 */
+/* 样式化 jsPsych HTML Button Response 的刺激部分 */
 #jspsych-html-button-response-stimulus {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
+    display: flex; /* 使用Flex布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    box-sizing: border-box; /* 包括内边距和边框 */
+    padding: 20px; /* 内边距为20px，可根据需要调整 */
 }
 
-/* 任务容器样式 */
+/* 样式化任务容器 */
 .task-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    max-width: 1600px;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: white;
-    border-radius: 10px;
-    overflow: auto;
-    text-align: center;
+    display: flex; /* 使用Flex布局 */
+    flex-direction: column; /* 子项纵向排列 */
+    justify-content: center; /* 子项在主轴（纵轴）居中对齐 */
+    align-items: center; /* 子项在交叉轴（横轴）居中对齐 */
+    width: 80%; /* 宽度为其父容器宽度的80% */
+    max-width: 1600px; /* 最大宽度为1600px */
+    height: auto; /* 高度自动调整 */
+    padding: 20px; /* 添加内边距 */
+    box-sizing: border-box; /* 包括内边距和边框 */
+    background-color: white; /* 背景颜色为白色 */
+    border-radius: 10px; /* 圆角为10px */
+    overflow: auto; /* 防止内容溢出 */
+    text-align: center; /* 文字居中对齐 */
 }
 
 /* 按钮样式 */
 button {
-    padding: 10px 20px;
-    margin-top: 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #007BFF;
-    color: white;
-    transition: background-color 0.3s ease;
+    padding: 10px 20px; /* 内边距为10px上/下，20px左/右 */
+    margin-top: 20px; /* 上边距为20px */
+    font-size: 16px; /* 字体大小为16px */
+    cursor: pointer; /* 鼠标指针变为手型 */
+    border: none; /* 无边框 */
+    border-radius: 5px; /* 圆角为5px */
+    background-color: #007BFF; /* 背景颜色 */
+    color: white; /* 字体颜色为白色 */
+    transition: background-color 0.3s ease; /* 背景颜色渐变效果 */
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* 鼠标悬停时的背景颜色 */
 }
 
-/* 居中按钮和文本输入 */
+/* 确保按钮和文本输入居中且响应式 */
 .jspsych-btn, .jspsych-html-button-response-button, .jspsych-survey-text input {
-    display: block;
-    margin: 10px auto;
-    font-size: 18px;
+    display: block; /* 块级元素 */
+    margin: 10px auto; /* 水平居中，外边距为10px */
+    font-size: 18px; /* 字体大小为18px */
 }
 
 .jspsych-btn, .jspsych-html-button-response-button {
-    width: 200px;
+    width: 200px; /* 宽度为200px */
 }
 
 .jspsych-survey-text input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: 100%; /* 宽度为100% */
+    padding: 10px; /* 内边距为10px */
+    border: 1px solid #ccc; /* 边框为1px实线，颜色为#ccc */
+    border-radius: 5px; /* 圆角为5px */
 }
 
-/* 视频响应样式 */
+/* 样式化数学试验中的问题和选项 */
+.jspsych-html-button-response-stimulus {
+    margin-bottom: 20px; /* 下外边距为20px */
+    font-size: 24px; /* 字体大小为24px */
+}
+
+.jspsych-html-button-response-button {
+    margin: 10px; /* 外边距为10px */
+    padding: 10px 20px; /* 内边距为10px上/下，20px左/右 */
+    font-size: 18px; /* 字体大小为18px */
+}
+
+/* 确保视频响应式 */
 video {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+    max-width: 100%; /* 最大宽度为100% */
+    height: auto; /* 高度自动调整 */
+    border-radius: 10px; /* 圆角为10px */
 }
 
-/* 滑动条响应样式 */
+/* 居中滑块响应的刺激 */
 #jspsych-html-slider-response-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 100px 0;
+    display: flex; /* 使用Flex布局 */
+    flex-direction: column; /* 子项纵向排列 */
+    align-items: center; /* 水平居中 */
+    margin: 100px 0; /* 上下外边距为100px */
 }
 
 #jspsych-html-slider-response-stimulus {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
+    display: flex; /* 使用Flex布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    width: 100%; /* 宽度为100% */
+    box-sizing: border-box; /* 包括内边距和边框 */
+    padding: 20px; /* 内边距为20px */
+}
+
 }
 ```
 
 ##### JavaScript 文件 (`script.js`)
 
 ```js
-// 初始化 jsPsych
+// 初始化jsPsych
 var jsPsych = initJsPsych({
     on_finish: function() {
+        // 实验结束时导出数据为Excel文件
         exportDataToExcel();
     }
 });
 
+// 创建时间线数组
 var timeline = [];
 
-// 输入被试编号
+// 输入被试编号的任务
 var subject_id = {
     type: jsPsychSurveyText,
     questions: [
@@ -979,17 +1010,21 @@ var subject_id = {
     ],
     on_finish: function(data) {
         try {
+            // 尝试解析被试编号
             var responses = data.responses ? JSON.parse(data.responses) : {};
             jsPsych.data.addProperties({
                 subject_id: responses.subject_id || 'undefined'
             });
         } catch (e) {
+            // 解析失败时输出错误信息
             console.error("Error parsing responses:", e);
         }
     }
 };
+// 将被试编号任务添加到时间线
 timeline.push(subject_id);
 
+// 欢迎页面任务
 var welcome = {
     type: jsPsychHtmlButtonResponse,
     stimulus: '<div class="task-container">' +
@@ -1001,13 +1036,15 @@ var welcome = {
               '</div>',
     choices: ['开始']
 };
+// 将欢迎页面任务添加到时间线
 timeline.push(welcome);
 
-// 生成随机数学问题
+// 生成指定范围内的随机整数
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// 生成数学题
 function generateMathProblem() {
     var types = ['+', '-', '*', '/'];
     var type = types[getRandomInt(0, types.length - 1)];
@@ -1036,7 +1073,7 @@ function generateMathProblem() {
     return { question: `${num1} ${type} ${num2} = ?`, answer: answer };
 }
 
-// 创建数学任务
+// 创建数学题任务
 function createMathTrial() {
     var problem = generateMathProblem();
     var options = [problem.answer, problem.answer + 1, problem.answer - 1, problem.answer + 2];
@@ -1051,7 +1088,9 @@ function createMathTrial() {
             correct_answer: problem.answer
         },
         on_finish: function(data) {
+            // 检查回答是否正确
             data.correct = data.response == options.indexOf(problem.answer.toString());
+            data.rt = data.rt;
         }
     };
 }
@@ -1061,7 +1100,7 @@ function createRelaxTrial() {
     return {
         type: jsPsychHtmlButtonResponse,
         stimulus: '<div class="task-container"><p>放松任务</p><video width="100%" height="100%" controls autoplay><source src="video.MP4" type="video/mp4">您的浏览器不支持视频播放。</video></div>',
-        choices: ['结束任务'],
+        choices: ['结束任务'], // 添加结束任务按钮
         button_html: '<button class="jspsych-btn">%choice%</button>',
         on_finish: function(data) {
             var video = document.querySelector('video');
@@ -1072,7 +1111,7 @@ function createRelaxTrial() {
     };
 }
 
-// 创建练习阶段
+// 创建练习块
 function createPracticeBlock() {
     var practice_trials = [];
     for (var i = 0; i < 5; i++) {
@@ -1098,64 +1137,98 @@ function createPracticeBlock() {
         choices: ['开始']
     };
 
-   
-
- return [].concat(instructions_practice, practice_trials, end_practice);
+    return [instructions_practice, ...practice_trials, end_practice];
 }
+// 将练习块任务添加到时间线
+timeline.push(...createPracticeBlock());
 
-// 创建正式实验阶段
-function createMainExperimentBlock() {
-    var main_trials = [];
-    for (var i = 0; i < 10; i++) {
-        main_trials.push(createMathTrial());
-    }
+// 正式实验说明任务
+var instructions_real = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: '<div class="task-container">' +
+                '<p>正式实验开始</p>' +
+                '<p>如果您准备好正式实验，点击下面的按钮开始。</p>' +
+                '</div>',
+    choices: ['开始']
+};
+// 将正式实验说明任务添加到时间线
+timeline.push(instructions_real);
 
-    var instructions_main = {
-        type: jsPsychHtmlButtonResponse,
-        stimulus: '<div class="task-container">' +
-                  '<p>接下来将开始正式的计算题实验</p>' +
-                  '<p>请在保证准确性的前提下尽可能加快速度</p>' +
-                  '<p>如果您准备好了，点击下面的按钮开始。</p>' +
-                  '</div>',
-        choices: ['开始']
-    };
-
-    return [].concat(instructions_main, main_trials);
+// 创建正式实验任务
+var real_trials = [];
+for (var i = 0; i < 50; i++) {
+    real_trials.push(createMathTrial());
 }
+// 将正式实验任务添加到时间线
+timeline.push(...real_trials);
 
-// 添加到时间线
-timeline = timeline.concat(createPracticeBlock());
-timeline = timeline.concat(createMainExperimentBlock());
+// 添加任务切换说明
+timeline.push({
+    type: jsPsychHtmlButtonResponse,
+    stimulus: '<div class="task-container">' +
+                '<p>任务一结束</p>' +
+                '<p>接下来进行任务二：放松任务</p>' +
+                '<p>您只需要尽可能地放松、发呆</p>' +
+                '<p>沉浸在轻松的氛围中即可</p>' +
+                '</div>',
+    choices: ['开始']
+});
+
+// 将放松任务添加到时间线
 timeline.push(createRelaxTrial());
 
-// 调查问卷
-var survey = {
-    type: jsPsychSurveyText,
-    questions: [
-        {prompt: "您在本次实验中有何感受？", name: 'feedback', rows: 5, columns: 40}
-    ]
-};
-timeline.push(survey);
+// 添加脑电安全帽舒适度评分任务
+timeline.push({
+    type: jsPsychHtmlSliderResponse,
+    stimulus:'<div class="task-container">' +
+        '<p>请您对脑电安全帽的舒适度进行评分：</p>' +
+        '<p>1:非常不舒服,10:非常舒服;</p>' +
+        '</div>',
+    labels: [1,2,3,4,5,6,7,8,9,10],
+    step:1,
+    min:1,
+    max:10,
+    slider_start:5,
+    slider_width:500,
+    require_movement: true,
+    button_label:'确认提交'
+});
 
-// 结束页面
-var end = {
+// 实验结束页面任务
+timeline.push({
     type: jsPsychHtmlButtonResponse,
-    stimulus: '<div class="task-container"><p>实验结束，感谢您的参与！</p></div>',
+    stimulus: '<div class="task-container">' +
+              '<p>实验已结束，感谢您的参与！</p>' +
+              '</div>',
     choices: ['结束']
-};
-timeline.push(end);
+});
 
-// 运行实验
-jsPsych.run(timeline);
-
-// 导出数据为 Excel
+// 导出数据为Excel文件的函数
 function exportDataToExcel() {
-    var data = jsPsych.data.get().csv();
-    var worksheet = XLSX.utils.aoa_to_sheet([data.split("\n").map(row => row.split(","))]);
+    var data = jsPsych.data.get().json();
+    var jsonData = JSON.parse(data);
+    
+    // 转换数据为Excel格式
+    var worksheet = XLSX.utils.json_to_sheet(jsonData);
     var workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "实验数据");
-    XLSX.writeFile(workbook, "experiment_data.xlsx");
+
+    // 生成Excel文件
+    var excelData = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+
+    // 创建下载链接并点击
+    var blob = new Blob([excelData], { type: 'application/octet-stream' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = '实验数据.xlsx';
+    a.click();
+    URL.revokeObjectURL(url);
 }
+
+// 启动实验
+jsPsych.run(timeline);
+
 ```
 
 ### 解释
