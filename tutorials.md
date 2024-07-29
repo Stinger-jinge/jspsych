@@ -191,241 +191,6 @@ document.getElementById('start-button').addEventListener('click', function() {
 });
 ```
 
-### CSS文件
-
-#### CSS 文件的作用
-
-CSS（层叠样式表）用于描述 HTML 文档的样式。它负责控制网页的布局、颜色、字体等，使网页更具视觉吸引力和用户友好性。
-
-#### 弹性盒子（Flexbox）
-
-弹性盒子（Flexbox）是 CSS3 中的一种布局模式，它可以使复杂的布局结构变得更加简单和灵活。Flexbox 布局通过将容器的子元素按行或列对齐和分布，可以轻松实现各种常见的布局需求，例如居中对齐、等宽排列等。
-
-#### 示例
-
-下面是对CSS文件每一段代码的详细讲解，包括每段代码的作用和内部逻辑。
-
-```css
-/* 重置一些默认样式 */
-body, html {
-    margin: 0; /* 去除默认外边距 */
-    padding: 0; /* 去除默认内边距 */
-    width: 100%; /* 设置宽度为100% */
-    height: 100%; /* 设置高度为100% */
-    font-family: Arial, sans-serif; /* 设置字体为Arial，若不支持则使用sans-serif */
-    display: flex; /* 使用Flex布局 */
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-    background-color: #f0f0f0; /* 设置背景颜色 */
-}
-```
-
-### 解释：
-- **body, html**: 重置HTML和body的默认样式，使页面元素在不同浏览器中表现一致。
-- **margin**: 去除外边距。
-- **padding**: 去除内边距。
-- **width, height**: 设置宽高为100%，使页面占满整个视口。
-- **font-family**: 设置默认字体。
-- **display: flex**: 使用Flex布局，方便子元素的对齐和分布。
-- **justify-content: center**: 子元素在主轴（水平）方向居中。
-- **align-items: center**: 子元素在交叉轴（垂直）方向居中。
-- **background-color**: 设置背景颜色为浅灰色。
-
-```css
-/* 整个body的Flex容器 */
-body {
-    display: flex; /* 使用Flex布局 */
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-}
-```
-
-### 解释：
-- **body**: 再次定义Flex布局，用于对齐body内的所有内容，使其水平和垂直居中。
-
-```css
-/* 样式化 jsPsych HTML Button Response 的刺激部分 */
-#jspsych-html-button-response-stimulus {
-    display: flex; /* 使用Flex布局 */
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-    box-sizing: border-box; /* 包括内边距和边框 */
-    padding: 20px; /* 内边距为20px，可根据需要调整 */
-}
-```
-
-### 解释：
-- **#jspsych-html-button-response-stimulus**: 样式化jsPsych插件中的按钮响应刺激部分。
-- **display: flex**: 使用Flex布局，使内容居中对齐。
-- **box-sizing**: 使内边距和边框包含在元素的总宽度和高度内。
-- **padding**: 设置内边距，使内容与边框保持一定距离。
-
-```css
-/* 样式化任务容器 */
-.task-container {
-    display: flex; /* 使用Flex布局 */
-    flex-direction: column; /* 子项纵向排列 */
-    justify-content: center; /* 子项在主轴（纵轴）居中对齐 */
-    align-items: center; /* 子项在交叉轴（横轴）居中对齐 */
-    width: 80%; /* 宽度为其父容器宽度的80% */
-    max-width: 1600px; /* 最大宽度为1600px */
-    height: auto; /* 高度自动调整 */
-    padding: 20px; /* 添加内边距 */
-    box-sizing: border-box; /* 包括内边距和边框 */
-    background-color: white; /* 背景颜色为白色 */
-    border-radius: 10px; /* 圆角为10px */
-    overflow: auto; /* 防止内容溢出 */
-    text-align: center; /* 文字居中对齐 */
-}
-```
-
-### 解释：
-- **.task-container**: 定义任务容器的样式。
-- **flex-direction: column**: 子项纵向排列。
-- **justify-content: center**: 子项在主轴方向（纵向）居中。
-- **align-items: center**: 子项在交叉轴方向（横向）居中。
-- **width, max-width**: 宽度设置为父容器的80%，最大宽度为1600px。
-- **padding**: 设置内边距。
-- **box-sizing**: 使内边距和边框包含在元素的总宽度和高度内。
-- **background-color**: 设置背景颜色为白色。
-- **border-radius**: 设置圆角。
-- **overflow**: 防止内容溢出容器。
-- **text-align**: 文字居中对齐。
-
-```css
-/* 按钮样式 */
-button {
-    padding: 10px 20px; /* 内边距为10px上/下，20px左/右 */
-    margin-top: 20px; /* 上边距为20px */
-    font-size: 16px; /* 字体大小为16px */
-    cursor: pointer; /* 鼠标指针变为手型 */
-    border: none; /* 无边框 */
-    border-radius: 5px; /* 圆角为5px */
-    background-color: #007BFF; /* 背景颜色 */
-    color: white; /* 字体颜色为白色 */
-    transition: background-color 0.3s ease; /* 背景颜色渐变效果 */
-}
-
-button:hover {
-    background-color: #0056b3; /* 鼠标悬停时的背景颜色 */
-}
-```
-
-### 解释：
-- **button**: 定义按钮的基础样式。
-- **padding**: 设置内边距，使按钮内容有足够的空白。
-- **margin-top**: 设置上边距，分隔按钮与上方内容。
-- **font-size**: 设置字体大小。
-- **cursor**: 鼠标悬停时显示为手型。
-- **border**: 去除按钮边框。
-- **border-radius**: 设置圆角。
-- **background-color**: 设置按钮背景颜色。
-- **color**: 设置字体颜色为白色。
-- **transition**: 背景颜色渐变效果，增强交互体验。
-
-```css
-/* 确保按钮和文本输入居中且响应式 */
-.jspsych-btn, .jspsych-html-button-response-button, .jspsych-survey-text input {
-    display: block; /* 块级元素 */
-    margin: 10px auto; /* 水平居中，外边距为10px */
-    font-size: 18px; /* 字体大小为18px */
-}
-
-.jspsych-btn, .jspsych-html-button-response-button {
-    width: 200px; /* 宽度为200px */
-}
-
-.jspsych-survey-text input {
-    width: 100%; /* 宽度为100% */
-    padding: 10px; /* 内边距为10px */
-    border: 1px solid #ccc; /* 边框为1px实线，颜色为#ccc */
-    border-radius: 5px; /* 圆角为5px */
-}
-```
-
-### 解释：
-- **.jspsych-btn, .jspsych-html-button-response-button, .jspsych-survey-text input**: 定义jsPsych按钮和文本输入的样式。
-- **display: block**: 将元素设置为块级元素。
-- **margin**: 水平居中，外边距为10px。
-- **font-size**: 设置字体大小。
-- **width**: 设置按钮的固定宽度。
-- **padding**: 设置文本输入的内边距。
-- **border**: 设置文本输入的边框。
-- **border-radius**: 设置圆角。
-
-```css
-/* 样式化数学试验中的问题和选项 */
-.jspsych-html-button-response-stimulus {
-    margin-bottom: 20px; /* 下外边距为20px */
-    font-size: 24px; /* 字体大小为24px */
-}
-
-.jspsych-html-button-response-button {
-    margin: 10px; /* 外边距为10px */
-    padding: 10px 20px; /* 内边距为10px上/下，20px左/右 */
-    font-size: 18px; /* 字体大小为18px */
-}
-```
-
-### 解释：
-- **.jspsych-html-button-response-stimulus**: 定义数学试验中的问题样式。
-- **margin-bottom**: 设置下外边距。
-- **font-size**: 设置字体大小。
-- **.jspsych-html-button-response-button**: 定义选项按钮样式。
-- **margin**: 设置外边距。
-- **padding**: 设置内边距。
-- **font-size**: 设置字体大小。
-
-```css
-/* 确保视频响应式 */
-video {
-    max-width: 100%; /* 最大宽度为100% */
-    height: auto; /* 高度自动调整 */
-    border-radius: 10px; /* 圆角为10px */
-}
-```
-
-### 解释：
-- **video**: 定义视频元素的样式。
-- **max-width**: 设置最大宽度为100%，确保视频不超出父容器。
-- **height**: 高度自动调整，保持视频比例。
-- **border-radius**: 设置圆角。
-
-```css
-/* 居中滑块响应的刺激 */
-#
-
-jspsych-html-slider-response-wrapper {
-    display: flex; /* 使用Flex布局 */
-    flex-direction: column; /* 子项纵向排列 */
-    align-items: center; /* 水平居中 */
-    margin: 100px 0; /* 上下外边距为100px */
-}
-
-#jspsych-html-slider-response-stimulus {
-    display: flex; /* 使用Flex布局 */
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-    width: 100%; /* 宽度为100% */
-    box-sizing: border-box; /* 包括内边距和边框 */
-    padding: 20px; /* 内边距为20px */
-}
-```
-
-### 解释：
-- **#jspsych-html-slider-response-wrapper**: 定义滑块响应容器的样式。
-- **flex-direction**: 子项纵向排列。
-- **align-items**: 水平居中。
-- **margin**: 设置上下外边距。
-- **#jspsych-html-slider-response-stimulus**: 定义滑块响应刺激的样式。
-- **justify-content, align-items**: 水平和垂直居中。
-- **width**: 设置宽度为100%。
-- **box-sizing**: 使内边距和边框包含在元素的总宽度和高度内。
-- **padding**: 设置内边距。
-
-这些CSS规则定义了页面和特定元素的样式，通过合理利用Flex布局和其他CSS属性，使页面元素在不同设备上都能很好地显示和交互。
-```
-
 #### JavaScript 文件的作用
 
 
@@ -784,8 +549,243 @@ jsPsych.run(timeline);
 - 使用 `jsPsych.run()` 启动实验并按照时间线顺序执行任务。
 
 ---
-
 通过上述步骤，你可以创建一个完整的心理学实验，涵盖数学题任务、放松任务、练习块、正式实验、任务切换以及数据导出功能。
+
+
+### CSS文件
+
+#### CSS 文件的作用
+
+CSS（层叠样式表）用于描述 HTML 文档的样式。它负责控制网页的布局、颜色、字体等，使网页更具视觉吸引力和用户友好性。
+
+#### 弹性盒子（Flexbox）
+
+弹性盒子（Flexbox）是 CSS3 中的一种布局模式，它可以使复杂的布局结构变得更加简单和灵活。Flexbox 布局通过将容器的子元素按行或列对齐和分布，可以轻松实现各种常见的布局需求，例如居中对齐、等宽排列等。
+
+#### 示例
+
+下面是对CSS文件每一段代码的详细讲解，包括每段代码的作用和内部逻辑。
+
+```css
+/* 重置一些默认样式 */
+body, html {
+    margin: 0; /* 去除默认外边距 */
+    padding: 0; /* 去除默认内边距 */
+    width: 100%; /* 设置宽度为100% */
+    height: 100%; /* 设置高度为100% */
+    font-family: Arial, sans-serif; /* 设置字体为Arial，若不支持则使用sans-serif */
+    display: flex; /* 使用Flex布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    background-color: #f0f0f0; /* 设置背景颜色 */
+}
+```
+
+### 解释：
+- **body, html**: 重置HTML和body的默认样式，使页面元素在不同浏览器中表现一致。
+- **margin**: 去除外边距。
+- **padding**: 去除内边距。
+- **width, height**: 设置宽高为100%，使页面占满整个视口。
+- **font-family**: 设置默认字体。
+- **display: flex**: 使用Flex布局，方便子元素的对齐和分布。
+- **justify-content: center**: 子元素在主轴（水平）方向居中。
+- **align-items: center**: 子元素在交叉轴（垂直）方向居中。
+- **background-color**: 设置背景颜色为浅灰色。
+
+```css
+/* 整个body的Flex容器 */
+body {
+    display: flex; /* 使用Flex布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+```
+
+### 解释：
+- **body**: 再次定义Flex布局，用于对齐body内的所有内容，使其水平和垂直居中。
+
+```css
+/* 样式化 jsPsych HTML Button Response 的刺激部分 */
+#jspsych-html-button-response-stimulus {
+    display: flex; /* 使用Flex布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    box-sizing: border-box; /* 包括内边距和边框 */
+    padding: 20px; /* 内边距为20px，可根据需要调整 */
+}
+```
+
+### 解释：
+- **#jspsych-html-button-response-stimulus**: 样式化jsPsych插件中的按钮响应刺激部分。
+- **display: flex**: 使用Flex布局，使内容居中对齐。
+- **box-sizing**: 使内边距和边框包含在元素的总宽度和高度内。
+- **padding**: 设置内边距，使内容与边框保持一定距离。
+
+```css
+/* 样式化任务容器 */
+.task-container {
+    display: flex; /* 使用Flex布局 */
+    flex-direction: column; /* 子项纵向排列 */
+    justify-content: center; /* 子项在主轴（纵轴）居中对齐 */
+    align-items: center; /* 子项在交叉轴（横轴）居中对齐 */
+    width: 80%; /* 宽度为其父容器宽度的80% */
+    max-width: 1600px; /* 最大宽度为1600px */
+    height: auto; /* 高度自动调整 */
+    padding: 20px; /* 添加内边距 */
+    box-sizing: border-box; /* 包括内边距和边框 */
+    background-color: white; /* 背景颜色为白色 */
+    border-radius: 10px; /* 圆角为10px */
+    overflow: auto; /* 防止内容溢出 */
+    text-align: center; /* 文字居中对齐 */
+}
+```
+
+### 解释：
+- **.task-container**: 定义任务容器的样式。
+- **flex-direction: column**: 子项纵向排列。
+- **justify-content: center**: 子项在主轴方向（纵向）居中。
+- **align-items: center**: 子项在交叉轴方向（横向）居中。
+- **width, max-width**: 宽度设置为父容器的80%，最大宽度为1600px。
+- **padding**: 设置内边距。
+- **box-sizing**: 使内边距和边框包含在元素的总宽度和高度内。
+- **background-color**: 设置背景颜色为白色。
+- **border-radius**: 设置圆角。
+- **overflow**: 防止内容溢出容器。
+- **text-align**: 文字居中对齐。
+
+```css
+/* 按钮样式 */
+button {
+    padding: 10px 20px; /* 内边距为10px上/下，20px左/右 */
+    margin-top: 20px; /* 上边距为20px */
+    font-size: 16px; /* 字体大小为16px */
+    cursor: pointer; /* 鼠标指针变为手型 */
+    border: none; /* 无边框 */
+    border-radius: 5px; /* 圆角为5px */
+    background-color: #007BFF; /* 背景颜色 */
+    color: white; /* 字体颜色为白色 */
+    transition: background-color 0.3s ease; /* 背景颜色渐变效果 */
+}
+
+button:hover {
+    background-color: #0056b3; /* 鼠标悬停时的背景颜色 */
+}
+```
+
+### 解释：
+- **button**: 定义按钮的基础样式。
+- **padding**: 设置内边距，使按钮内容有足够的空白。
+- **margin-top**: 设置上边距，分隔按钮与上方内容。
+- **font-size**: 设置字体大小。
+- **cursor**: 鼠标悬停时显示为手型。
+- **border**: 去除按钮边框。
+- **border-radius**: 设置圆角。
+- **background-color**: 设置按钮背景颜色。
+- **color**: 设置字体颜色为白色。
+- **transition**: 背景颜色渐变效果，增强交互体验。
+
+```css
+/* 确保按钮和文本输入居中且响应式 */
+.jspsych-btn, .jspsych-html-button-response-button, .jspsych-survey-text input {
+    display: block; /* 块级元素 */
+    margin: 10px auto; /* 水平居中，外边距为10px */
+    font-size: 18px; /* 字体大小为18px */
+}
+
+.jspsych-btn, .jspsych-html-button-response-button {
+    width: 200px; /* 宽度为200px */
+}
+
+.jspsych-survey-text input {
+    width: 100%; /* 宽度为100% */
+    padding: 10px; /* 内边距为10px */
+    border: 1px solid #ccc; /* 边框为1px实线，颜色为#ccc */
+    border-radius: 5px; /* 圆角为5px */
+}
+```
+
+### 解释：
+- **.jspsych-btn, .jspsych-html-button-response-button, .jspsych-survey-text input**: 定义jsPsych按钮和文本输入的样式。
+- **display: block**: 将元素设置为块级元素。
+- **margin**: 水平居中，外边距为10px。
+- **font-size**: 设置字体大小。
+- **width**: 设置按钮的固定宽度。
+- **padding**: 设置文本输入的内边距。
+- **border**: 设置文本输入的边框。
+- **border-radius**: 设置圆角。
+
+```css
+/* 样式化数学试验中的问题和选项 */
+.jspsych-html-button-response-stimulus {
+    margin-bottom: 20px; /* 下外边距为20px */
+    font-size: 24px; /* 字体大小为24px */
+}
+
+.jspsych-html-button-response-button {
+    margin: 10px; /* 外边距为10px */
+    padding: 10px 20px; /* 内边距为10px上/下，20px左/右 */
+    font-size: 18px; /* 字体大小为18px */
+}
+```
+
+### 解释：
+- **.jspsych-html-button-response-stimulus**: 定义数学试验中的问题样式。
+- **margin-bottom**: 设置下外边距。
+- **font-size**: 设置字体大小。
+- **.jspsych-html-button-response-button**: 定义选项按钮样式。
+- **margin**: 设置外边距。
+- **padding**: 设置内边距。
+- **font-size**: 设置字体大小。
+
+```css
+/* 确保视频响应式 */
+video {
+    max-width: 100%; /* 最大宽度为100% */
+    height: auto; /* 高度自动调整 */
+    border-radius: 10px; /* 圆角为10px */
+}
+```
+
+### 解释：
+- **video**: 定义视频元素的样式。
+- **max-width**: 设置最大宽度为100%，确保视频不超出父容器。
+- **height**: 高度自动调整，保持视频比例。
+- **border-radius**: 设置圆角。
+
+```css
+/* 居中滑块响应的刺激 */
+#
+
+jspsych-html-slider-response-wrapper {
+    display: flex; /* 使用Flex布局 */
+    flex-direction: column; /* 子项纵向排列 */
+    align-items: center; /* 水平居中 */
+    margin: 100px 0; /* 上下外边距为100px */
+}
+
+#jspsych-html-slider-response-stimulus {
+    display: flex; /* 使用Flex布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    width: 100%; /* 宽度为100% */
+    box-sizing: border-box; /* 包括内边距和边框 */
+    padding: 20px; /* 内边距为20px */
+}
+```
+
+### 解释：
+- **#jspsych-html-slider-response-wrapper**: 定义滑块响应容器的样式。
+- **flex-direction**: 子项纵向排列。
+- **align-items**: 水平居中。
+- **margin**: 设置上下外边距。
+- **#jspsych-html-slider-response-stimulus**: 定义滑块响应刺激的样式。
+- **justify-content, align-items**: 水平和垂直居中。
+- **width**: 设置宽度为100%。
+- **box-sizing**: 使内边距和边框包含在元素的总宽度和高度内。
+- **padding**: 设置内边距。
+
+这些CSS规则定义了页面和特定元素的样式，通过合理利用Flex布局和其他CSS属性，使页面元素在不同设备上都能很好地显示和交互。
+```
 
 ## 结语
 以上是jsPsych实验设计的基本教程，通过这些内容，你应该能够创建一个简单的jsPsych实验，并掌握一些基本的HTML、CSS和JavaScript技能。
