@@ -203,88 +203,589 @@ CSS（层叠样式表）用于描述 HTML 文档的样式。它负责控制网�
 
 #### 示例
 
-HTML文件：`index.html`
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flexbox 示例</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="flex-container">
-        <div class="flex-item">Item 1</div>
-        <div class="flex-item">Item 2</div>
-        <div class="flex-item">Item 3</div>
-    </div>
-</body>
-</html>
-```
-
-CSS 文件：`styles.css`
+下面是对CSS文件每一段代码的详细讲解，包括每段代码的作用和内部逻辑。
 
 ```css
-.flex-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-}
-
-.flex-item {
-    background-color: #007BFF;
-    color: white;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 5px;
+/* 重置一些默认样式 */
+body, html {
+    margin: 0; /* 去除默认外边距 */
+    padding: 0; /* 去除默认内边距 */
+    width: 100%; /* 设置宽度为100% */
+    height: 100%; /* 设置高度为100% */
+    font-family: Arial, sans-serif; /* 设置字体为Arial，若不支持则使用sans-serif */
+    display: flex; /* 使用Flex布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    background-color: #f0f0f0; /* 设置背景颜色 */
 }
 ```
 
-### JavaScript文件
+### 解释：
+- **body, html**: 重置HTML和body的默认样式，使页面元素在不同浏览器中表现一致。
+- **margin**: 去除外边距。
+- **padding**: 去除内边距。
+- **width, height**: 设置宽高为100%，使页面占满整个视口。
+- **font-family**: 设置默认字体。
+- **display: flex**: 使用Flex布局，方便子元素的对齐和分布。
+- **justify-content: center**: 子元素在主轴（水平）方向居中。
+- **align-items: center**: 子元素在交叉轴（垂直）方向居中。
+- **background-color**: 设置背景颜色为浅灰色。
+
+```css
+/* 整个body的Flex容器 */
+body {
+    display: flex; /* 使用Flex布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+```
+
+### 解释：
+- **body**: 再次定义Flex布局，用于对齐body内的所有内容，使其水平和垂直居中。
+
+```css
+/* 样式化 jsPsych HTML Button Response 的刺激部分 */
+#jspsych-html-button-response-stimulus {
+    display: flex; /* 使用Flex布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    box-sizing: border-box; /* 包括内边距和边框 */
+    padding: 20px; /* 内边距为20px，可根据需要调整 */
+}
+```
+
+### 解释：
+- **#jspsych-html-button-response-stimulus**: 样式化jsPsych插件中的按钮响应刺激部分。
+- **display: flex**: 使用Flex布局，使内容居中对齐。
+- **box-sizing**: 使内边距和边框包含在元素的总宽度和高度内。
+- **padding**: 设置内边距，使内容与边框保持一定距离。
+
+```css
+/* 样式化任务容器 */
+.task-container {
+    display: flex; /* 使用Flex布局 */
+    flex-direction: column; /* 子项纵向排列 */
+    justify-content: center; /* 子项在主轴（纵轴）居中对齐 */
+    align-items: center; /* 子项在交叉轴（横轴）居中对齐 */
+    width: 80%; /* 宽度为其父容器宽度的80% */
+    max-width: 1600px; /* 最大宽度为1600px */
+    height: auto; /* 高度自动调整 */
+    padding: 20px; /* 添加内边距 */
+    box-sizing: border-box; /* 包括内边距和边框 */
+    background-color: white; /* 背景颜色为白色 */
+    border-radius: 10px; /* 圆角为10px */
+    overflow: auto; /* 防止内容溢出 */
+    text-align: center; /* 文字居中对齐 */
+}
+```
+
+### 解释：
+- **.task-container**: 定义任务容器的样式。
+- **flex-direction: column**: 子项纵向排列。
+- **justify-content: center**: 子项在主轴方向（纵向）居中。
+- **align-items: center**: 子项在交叉轴方向（横向）居中。
+- **width, max-width**: 宽度设置为父容器的80%，最大宽度为1600px。
+- **padding**: 设置内边距。
+- **box-sizing**: 使内边距和边框包含在元素的总宽度和高度内。
+- **background-color**: 设置背景颜色为白色。
+- **border-radius**: 设置圆角。
+- **overflow**: 防止内容溢出容器。
+- **text-align**: 文字居中对齐。
+
+```css
+/* 按钮样式 */
+button {
+    padding: 10px 20px; /* 内边距为10px上/下，20px左/右 */
+    margin-top: 20px; /* 上边距为20px */
+    font-size: 16px; /* 字体大小为16px */
+    cursor: pointer; /* 鼠标指针变为手型 */
+    border: none; /* 无边框 */
+    border-radius: 5px; /* 圆角为5px */
+    background-color: #007BFF; /* 背景颜色 */
+    color: white; /* 字体颜色为白色 */
+    transition: background-color 0.3s ease; /* 背景颜色渐变效果 */
+}
+
+button:hover {
+    background-color: #0056b3; /* 鼠标悬停时的背景颜色 */
+}
+```
+
+### 解释：
+- **button**: 定义按钮的基础样式。
+- **padding**: 设置内边距，使按钮内容有足够的空白。
+- **margin-top**: 设置上边距，分隔按钮与上方内容。
+- **font-size**: 设置字体大小。
+- **cursor**: 鼠标悬停时显示为手型。
+- **border**: 去除按钮边框。
+- **border-radius**: 设置圆角。
+- **background-color**: 设置按钮背景颜色。
+- **color**: 设置字体颜色为白色。
+- **transition**: 背景颜色渐变效果，增强交互体验。
+
+```css
+/* 确保按钮和文本输入居中且响应式 */
+.jspsych-btn, .jspsych-html-button-response-button, .jspsych-survey-text input {
+    display: block; /* 块级元素 */
+    margin: 10px auto; /* 水平居中，外边距为10px */
+    font-size: 18px; /* 字体大小为18px */
+}
+
+.jspsych-btn, .jspsych-html-button-response-button {
+    width: 200px; /* 宽度为200px */
+}
+
+.jspsych-survey-text input {
+    width: 100%; /* 宽度为100% */
+    padding: 10px; /* 内边距为10px */
+    border: 1px solid #ccc; /* 边框为1px实线，颜色为#ccc */
+    border-radius: 5px; /* 圆角为5px */
+}
+```
+
+### 解释：
+- **.jspsych-btn, .jspsych-html-button-response-button, .jspsych-survey-text input**: 定义jsPsych按钮和文本输入的样式。
+- **display: block**: 将元素设置为块级元素。
+- **margin**: 水平居中，外边距为10px。
+- **font-size**: 设置字体大小。
+- **width**: 设置按钮的固定宽度。
+- **padding**: 设置文本输入的内边距。
+- **border**: 设置文本输入的边框。
+- **border-radius**: 设置圆角。
+
+```css
+/* 样式化数学试验中的问题和选项 */
+.jspsych-html-button-response-stimulus {
+    margin-bottom: 20px; /* 下外边距为20px */
+    font-size: 24px; /* 字体大小为24px */
+}
+
+.jspsych-html-button-response-button {
+    margin: 10px; /* 外边距为10px */
+    padding: 10px 20px; /* 内边距为10px上/下，20px左/右 */
+    font-size: 18px; /* 字体大小为18px */
+}
+```
+
+### 解释：
+- **.jspsych-html-button-response-stimulus**: 定义数学试验中的问题样式。
+- **margin-bottom**: 设置下外边距。
+- **font-size**: 设置字体大小。
+- **.jspsych-html-button-response-button**: 定义选项按钮样式。
+- **margin**: 设置外边距。
+- **padding**: 设置内边距。
+- **font-size**: 设置字体大小。
+
+```css
+/* 确保视频响应式 */
+video {
+    max-width: 100%; /* 最大宽度为100% */
+    height: auto; /* 高度自动调整 */
+    border-radius: 10px; /* 圆角为10px */
+}
+```
+
+### 解释：
+- **video**: 定义视频元素的样式。
+- **max-width**: 设置最大宽度为100%，确保视频不超出父容器。
+- **height**: 高度自动调整，保持视频比例。
+- **border-radius**: 设置圆角。
+
+```css
+/* 居中滑块响应的刺激 */
+#
+
+jspsych-html-slider-response-wrapper {
+    display: flex; /* 使用Flex布局 */
+    flex-direction: column; /* 子项纵向排列 */
+    align-items: center; /* 水平居中 */
+    margin: 100px 0; /* 上下外边距为100px */
+}
+
+#jspsych-html-slider-response-stimulus {
+    display: flex; /* 使用Flex布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    width: 100%; /* 宽度为100% */
+    box-sizing: border-box; /* 包括内边距和边框 */
+    padding: 20px; /* 内边距为20px */
+}
+```
+
+### 解释：
+- **#jspsych-html-slider-response-wrapper**: 定义滑块响应容器的样式。
+- **flex-direction**: 子项纵向排列。
+- **align-items**: 水平居中。
+- **margin**: 设置上下外边距。
+- **#jspsych-html-slider-response-stimulus**: 定义滑块响应刺激的样式。
+- **justify-content, align-items**: 水平和垂直居中。
+- **width**: 设置宽度为100%。
+- **box-sizing**: 使内边距和边框包含在元素的总宽度和高度内。
+- **padding**: 设置内边距。
+
+这些CSS规则定义了页面和特定元素的样式，通过合理利用Flex布局和其他CSS属性，使页面元素在不同设备上都能很好地显示和交互。
+```
 
 #### JavaScript 文件的作用
 
+
 JavaScript 是一种用于实现网页动态行为的脚本语言。通过 JavaScript，可以增强网页的交互性和功能性。
 
-#### 示例
+以下是一个 Markdown 格式的教程，详细解释了每一段代码的功能和逻辑，并展示了如何将这些代码片段结合在一起：
 
-HTML文件：`index.html`
+---
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript 示例</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1 id="title">欢迎来到我的网页</h1>
-    <button id="changeColorButton">改变标题颜色</button>
-    <script src="script.js"></script>
-</body>
-</html>
-```
+## jsPsych 实验教程
 
-JavaScript 文件：`script.js`
+本教程将指导你如何使用 `jsPsych` 进行实验设计，包括如何初始化 `jsPsych`、创建任务、添加到时间线以及导出数据。
 
-```js
-const title = document.getElementById('title');
-const button = document.getElementById('changeColorButton');
+### 1. 初始化 jsPsych
 
-button.addEventListener('click', () => {
-    const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-    title.style.color = randomColor;
+```javascript
+// 初始化 jsPsych
+var jsPsych = initJsPsych({
+    on_finish: function() {
+        // 实验结束时导出数据为 Excel 文件
+        exportDataToExcel();
+    }
 });
 ```
 
-### 时间线
+- `initJsPsych()` 函数用于初始化 `jsPsych` 实例。
+- `on_finish` 回调函数在实验完成时被调用，调用 `exportDataToExcel()` 函数以导出实验数据为 Excel 文件。
 
-在心理学实验中，时间线（timeline）是实验设计的核心部分，它定义了实验的各个步骤及其顺序。 
+### 2. 创建时间线数组
 
+```javascript
+// 创建时间线数组
+var timeline = [];
+```
+
+- `timeline` 是一个空数组，用于存储实验的任务。任务将按照添加的顺序依次执行。
+
+### 3. 输入被试编号的任务
+
+```javascript
+// 输入被试编号的任务
+var subject_id = {
+    type: jsPsychSurveyText,
+    questions: [
+        {prompt: "请输入您的编号：", name: 'subject_id', required: true}
+    ],
+    on_finish: function(data) {
+        try {
+            // 尝试解析被试编号
+            var responses = data.responses ? JSON.parse(data.responses) : {};
+            jsPsych.data.addProperties({
+                subject_id: responses.subject_id || 'undefined'
+            });
+        } catch (e) {
+            // 解析失败时输出错误信息
+            console.error("Error parsing responses:", e);
+        }
+    }
+};
+// 将被试编号任务添加到时间线
+timeline.push(subject_id);
+```
+
+- 该任务使用 `jsPsychSurveyText` 插件来收集被试编号。
+- `on_finish` 回调在任务完成后执行，将被试编号添加到 `jsPsych` 数据中。
+- `timeline.push(subject_id)` 将任务添加到时间线。
+
+### 4. 欢迎页面任务
+
+```javascript
+// 欢迎页面任务
+var welcome = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: '<div class="task-container">' +
+              '<p>您好，欢迎参加本次实验。</p>' +
+              '<p>接下来你会看到两类任务：</p>' +
+              '<p>第一类：计算任务，计算出具体答案后用鼠标选择正确的选项，只允许选一次，选择后立即下一题。</p>' +
+              '<p>第二类：放松任务，周围会放出缓慢的音乐，优美的图片，您只需要让自己放松下来即可。</p>' +
+              '<p>如果您准备好了，点击下面的按钮开始。</p>' +
+              '</div>',
+    choices: ['开始']
+};
+// 将欢迎页面任务添加到时间线
+timeline.push(welcome);
+```
+
+- 该任务使用 `jsPsychHtmlButtonResponse` 插件展示欢迎页面。
+- `stimulus` 包含 HTML 内容，介绍实验的两部分任务。
+- `choices` 是一个按钮，用户点击后继续到下一个任务。
+
+### 5. 生成数学题
+
+```javascript
+// 生成数学题
+function generateMathProblem() {
+    var types = ['+', '-', '*', '/'];
+    var type = types[getRandomInt(0, types.length - 1)];
+    var num1, num2, answer;
+
+    if (type === '+') {
+        num1 = getRandomInt(1, 1000);
+        num2 = getRandomInt(1, 1000);
+        answer = num1 + num2;
+    } else if (type === '-') {
+        num1 = getRandomInt(1, 1000);
+        num2 = getRandomInt(1, num1);
+        answer = num1 - num2;
+    } else if (type === '*') {
+        num1 = getRandomInt(1, 100);
+        num2 = getRandomInt(1, 100);
+        answer = num1 * num2;
+    } else {
+        num1 = getRandomInt(1, 100);
+        num2 = getRandomInt(1, 100);
+        answer = num1 * num2;
+        num1 = answer;
+        answer = num1 / num2;
+    }
+
+    return { question: `${num1} ${type} ${num2} = ?`, answer: answer };
+}
+```
+
+- `generateMathProblem()` 函数生成随机数学题。
+- 根据运算符选择随机数，并计算答案。
+
+### 6. 创建数学题任务
+
+```javascript
+// 创建数学题任务
+function createMathTrial() {
+    var problem = generateMathProblem();
+    var options = [problem.answer, problem.answer + 1, problem.answer - 1, problem.answer + 2];
+    options = jsPsych.randomization.shuffle(options);
+
+    return {
+        type: jsPsychHtmlButtonResponse,
+        stimulus: `<div class="task-container"><p>${problem.question}</p></div>`,
+        choices: options.map(option => option.toString()),
+        data: {
+            task: 'math',
+            correct_answer: problem.answer
+        },
+        on_finish: function(data) {
+            // 检查回答是否正确
+            data.correct = data.response == options.indexOf(problem.answer.toString());
+            data.rt = data.rt;
+        }
+    };
+}
+```
+
+- `createMathTrial()` 函数生成数学题任务。
+- 选择问题答案的选项并打乱顺序。
+- `on_finish` 回调用于验证回答是否正确。
+
+### 7. 创建放松任务
+
+```javascript
+// 创建放松任务
+function createRelaxTrial() {
+    return {
+        type: jsPsychHtmlButtonResponse,
+        stimulus: '<div class="task-container"><p>放松任务</p><video width="100%" height="100%" controls autoplay><source src="video.MP4" type="video/mp4">您的浏览器不支持视频播放。</video></div>',
+        choices: ['结束任务'], // 添加结束任务按钮
+        button_html: '<button class="jspsych-btn">%choice%</button>',
+        on_finish: function(data) {
+            var video = document.querySelector('video');
+            if (video) {
+                video.pause();
+            }
+        }
+    };
+}
+```
+
+- `createRelaxTrial()` 函数创建放松任务，包括视频播放。
+- `on_finish` 回调在任务完成时暂停视频播放。
+
+### 8. 创建练习块
+
+```javascript
+// 创建练习块
+function createPracticeBlock() {
+    var practice_trials = [];
+    for (var i = 0; i < 5; i++) {
+        practice_trials.push(createMathTrial());
+    }
+
+    var instructions_practice = {
+        type: jsPsychHtmlButtonResponse,
+        stimulus: '<div class="task-container">' +
+                  '<p>接下来将开始计算题练习</p>' +
+                  '<p>请在保证准确性的前提下尽可能加快速度</p>' +
+                  '<p>如果您准备好了，点击下面的按钮开始。</p>' +
+                  '</div>',
+        choices: ['开始']
+    };
+
+    var end_practice = {
+        type: jsPsychHtmlButtonResponse,
+        stimulus: '<div class="task-container">' +
+                  '<p>练习结束</p>' +
+                  '<p>如果您准备好正式实验，点击下面的按钮开始。</p>' +
+                  '</div>',
+        choices: ['开始']
+    };
+
+    return [instructions_practice, ...practice_trials, end_practice];
+}
+// 将练习块任务添加到时间线
+timeline.push(...createPracticeBlock());
+```
+
+- `createPracticeBlock()` 函数创建包含练习题的任务块。
+- 包括练习说明、5个数学题和练习结束任务。
+- 将练习块添加到时间线。
+
+### 9. 正式实验说明任务
+
+```javascript
+// 正式实验说明任务
+var instructions_real = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: '<div class="task-container">' +
+                '<p>正式实验开始</p>' +
+                '<p>如果您准备好正式实验，点击下面的按钮开始。</p>' +
+                '</div>',
+    choices: ['开始']
+};
+// 将正式实验说明任务添加到时间线
+timeline.push(instructions_real);
+```
+
+- `instructions_real` 提供实验开始的说明。
+- 添加到时间线以供正式实验开始前显示。
+
+### 10. 创建正式实验任务
+
+```javascript
+// 创建正式实验任务
+var real_trials = [];
+for (var i = 0; i < 50; i++) {
+    real_trials.push(createMathTrial());
+}
+// 将正式实验任务添加到时间线
+timeline.push(...real_trials);
+```
+
+- 创建50个数学题任务并将它们添加到时间线。
+
+### 11. 添加任务切换说明
+
+```javascript
+// 添加任务切换说明
+timeline.push({
+    type: jsPsychHtmlButtonResponse,
+    stimulus: '<div class="task-container">' +
+                '<p>任务一结束</p>' +
+                '<p>接下来进行任务二：放松任务</p>' +
+                '<p>您只需要尽可能地放松、发呆</p>' +
+                '<p>沉浸在轻松的氛围中即可</p>' +
+                '</div>',
+    choices:
+
+ ['开始']
+});
+```
+
+- 在数学任务结束后添加放松任务的说明。
+
+### 12. 将放松任务添加到时间线
+
+```javascript
+// 将放松任务添加到时间线
+timeline.push(createRelaxTrial());
+```
+
+- 将放松任务添加到时间线以供实验进行。
+
+### 13. 添加脑电安全帽舒适度评分任务
+
+```javascript
+// 添加脑电安全帽舒适度评分任务
+timeline.push({
+    type: jsPsychHtmlSliderResponse,
+    stimulus:'<div class="task-container">' +
+        '<p>请您对脑电安全帽的舒适度进行评分：</p>' +
+        '<p>1:非常不舒服,10:非常舒服;</p>' +
+        '</div>',
+    labels: [1,2,3,4,5,6,7,8,9,10],
+    step:1,
+    min:1,
+    max:10,
+    slider_start:5,
+    slider_width:500,
+    require_movement: true,
+    button_label:'确认提交'
+});
+```
+
+- 使用 `jsPsychHtmlSliderResponse` 插件创建评分任务。
+- 允许被试对舒适度进行评分。
+
+### 14. 实验结束页面任务
+
+```javascript
+// 实验结束页面任务
+timeline.push({
+    type: jsPsychHtmlButtonResponse,
+    stimulus: '<div class="task-container">' +
+              '<p>实验已结束，感谢您的参与！</p>' +
+              '</div>',
+    choices: ['结束']
+});
+```
+
+- 显示实验结束页面，感谢参与者。
+
+### 15. 导出数据为 Excel 文件的函数
+
+```javascript
+// 导出数据为 Excel 文件的函数
+function exportDataToExcel() {
+    var data = jsPsych.data.get().json();
+    var jsonData = JSON.parse(data);
+    
+    // 转换数据为 Excel 格式
+    var worksheet = XLSX.utils.json_to_sheet(jsonData);
+    var workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "实验数据");
+
+    // 生成 Excel 文件
+    var excelData = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+
+    // 创建下载链接并点击
+    var blob = new Blob([excelData], { type: 'application/octet-stream' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = '实验数据.xlsx';
+    a.click();
+    URL.revokeObjectURL(url);
+}
+```
+
+- `exportDataToExcel()` 函数将 `jsPsych` 数据转换为 Excel 格式并生成下载链接。
+
+### 16. 启动实验
+
+```javascript
+// 启动实验
+jsPsych.run(timeline);
+```
+
+- 使用 `jsPsych.run()` 启动实验并按照时间线顺序执行任务。
+
+---
+
+通过上述步骤，你可以创建一个完整的心理学实验，涵盖数学题任务、放松任务、练习块、正式实验、任务切换以及数据导出功能。
+
+## 结语
 以上是jsPsych实验设计的基本教程，通过这些内容，你应该能够创建一个简单的jsPsych实验，并掌握一些基本的HTML、CSS和JavaScript技能。
