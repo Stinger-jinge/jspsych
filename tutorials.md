@@ -194,20 +194,6 @@ jsPsych 提供了丰富的插件库，可以方便地实现各种实验功能。
 ```
 这个示例展示了如何使用基本的HTML标签来创建一个简单的网页。通过理解这些标签的使用方法，您可以构建功能丰富的网页，并逐步添加更多复杂的元素和样式。
 
-
-### 在线服务器（html文件）
-为了简化开发流程，你可以使用 jsPsych 提供的在线服务器来加载插件，而无需下载到本地。只需在你的 HTML 文件中引用相关的插件 URL 即可。例如，在我们的实验设计中：
-```html
-<!-- 引入各个jsPsych插件 -->
-<script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.3"></script> <!-- 引入HTML键盘响应插件 -->
-<script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.2.0"></script> <!-- 引入HTML按钮响应插件 -->
-<script src="https://unpkg.com/@jspsych/plugin-survey-text@1.1.3"></script> <!-- 引入调查文本插件 -->
-<script src="https://unpkg.com/@jspsych/plugin-audio-button-response@1.2.0"></script> <!-- 引入音频按钮响应插件 -->
-<script src="https://unpkg.com/@jspsych/plugin-instructions@1.1.4"></script> <!-- 引入指令插件 -->
-<script src="https://unpkg.com/@jspsych/plugin-preload@1.1.3"></script> <!-- 引入预加载插件 -->
-<script src="https://unpkg.com/@jspsych/plugin-html-slider-response@1.1.3"></script><!-- 引入HTML滑动条插件 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script> <!-- 引入用于处理Excel文件的库 -->
-```
 ### html文档简化
 在构建 jsPsych 实验时，为了避免 HTML 文件过长和结构混乱，我们可以将文件拆分为 HTML、CSS 和 JavaScript 三个部分。通过这种方式，可以更好地管理代码，并使其更易于维护和阅读。我们可以通过在 HTML 文件中使用 `<link>` 和 `<script>` 标签来链接 CSS 和 JavaScript 文件。链接路径分为**绝对路径**和**相对路径**。
 #### 绝对路径
@@ -297,6 +283,19 @@ document.getElementById('start-button').addEventListener('click', function() {
     alert('实验开始！');
 });
 ```
+### 在线服务器（html文件）
+为了简化开发流程，你可以使用 jsPsych 提供的在线服务器来加载插件，而无需下载到本地。只需在你的 HTML 文件中引用相关的插件 URL 即可。例如，在我们的实验设计中：
+```html
+<!-- 引入各个jsPsych插件 -->
+<script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.3"></script> <!-- 引入HTML键盘响应插件 -->
+<script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.2.0"></script> <!-- 引入HTML按钮响应插件 -->
+<script src="https://unpkg.com/@jspsych/plugin-survey-text@1.1.3"></script> <!-- 引入调查文本插件 -->
+<script src="https://unpkg.com/@jspsych/plugin-audio-button-response@1.2.0"></script> <!-- 引入音频按钮响应插件 -->
+<script src="https://unpkg.com/@jspsych/plugin-instructions@1.1.4"></script> <!-- 引入指令插件 -->
+<script src="https://unpkg.com/@jspsych/plugin-preload@1.1.3"></script> <!-- 引入预加载插件 -->
+<script src="https://unpkg.com/@jspsych/plugin-html-slider-response@1.1.3"></script><!-- 引入HTML滑动条插件 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script> <!-- 引入用于处理Excel文件的库 -->
+```
 
 ## CSS文件 
 ### CSS 文件的作用
@@ -305,121 +304,205 @@ CSS（层叠样式表）用于描述 HTML 文档的样式。它负责控制网�
 
 ### 如何使用单独的 CSS 文件给 HTML 设置格式
 
-1. 创建一个 CSS 文件，例如 `styles.css`。
-2. 在 HTML 文件的 `<head>` 标签中，使用 `<link>` 标签引入 CSS 文件。
+1. **初始化与基础设置**
+2. **CSS文件结构与应用**
+3. **Flexbox布局的基本概念**
+4. **Flexbox布局在实验中的应用**
+5. **示例代码与详解**
 
-### 示例
+### 1. 初始化与基础设置
 
-#### HTML 文件（`index.html`）
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>示例网页</title>
-    <link rel="stylesheet" href="styles.css"> <!-- 引入外部CSS文件 -->
-</head>
-<body>
-    <h1>欢迎来到我的网页</h1>
-    <p>这是一个段落，用于展示基本的HTML标签。</p>
-</body>
-</html>
-```
-
-#### CSS 文件（`styles.css`）
+在任何网页设计中，首先要进行基础设置和初始化，以确保所有浏览器的默认样式不会干扰我们的设计。以下代码展示了如何通过CSS重置默认样式，并设置一些全局的样式属性。
 
 ```css
-/* 设置 body 的背景颜色和字体样式 */
-body {
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+/* 重置一些默认样式 */
+body, html {
+    margin: 0; /* 去除默认外边距 */
+    padding: 0; /* 去除默认内边距 */
+    width: 100%; /* 设置宽度为100% */
+    height: 100%; /* 设置高度为100% */
+    font-family: Arial, sans-serif; /* 设置字体为Arial，若不支持则使用sans-serif */
+    display: flex; /* 使用Flex布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    background-color: #f0f0f0; /* 设置背景颜色 */
+}
+```
+
+### 2. CSS文件结构与应用
+
+CSS文件通常结构清晰，包含全局样式、组件样式和布局样式等部分。以下是一个简单的结构示例：
+
+```css
+/* 全局样式 */
+body, html {
+    /* 全局样式设置 */
 }
 
-/* 设置 h1 标题的颜色和居中对齐 */
-h1 {
-    color: #333;
+/* 组件样式 */
+.task-container {
+    /* 任务容器样式 */
+}
+
+/* 按钮样式 */
+button {
+    /* 按钮样式 */
+}
+```
+
+将CSS文件链接到HTML文件中，通常在HTML文件的`<head>`部分使用`<link>`标签：
+
+```html
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+```
+
+### 3. Flexbox布局的基本概念
+
+Flexbox（弹性盒子）是一种一维布局模型，可以更高效地排列和对齐容器中的子项，无论它们的大小如何。它主要由以下几个属性组成：
+
+- `display: flex;`：将容器定义为弹性盒子容器。
+- `flex-direction`：定义主轴方向（水平或垂直）。
+- `justify-content`：定义子项在主轴上的对齐方式。
+- `align-items`：定义子项在交叉轴上的对齐方式。
+
+### 4. Flexbox布局在实验中的应用
+
+在我们的实验设计中，我们使用了Flexbox来创建一个居中对齐的任务容器，并确保所有元素在不同设备和屏幕尺寸上都能正确显示。
+
+```css
+/* 样式化任务容器 */
+.task-container {
+    display: flex; /* 使用Flex布局 */
+    flex-direction: column; /* 子项纵向排列 */
+    justify-content: center; /* 子项在主轴（纵轴）居中对齐 */
+    align-items: center; /* 子项在交叉轴（横轴）居中对齐 */
+    width: 80%; /* 宽度为其父容器宽度的80% */
+    max-width: 1600px; /* 最大宽度为1600px */
+    height: auto; /* 高度自动调整 */
+    padding: 20px; /* 添加内边距 */
+    box-sizing: border-box; /* 包括内边距和边框 */
+    background-color: white; /* 背景颜色为白色 */
+    border-radius: 10px; /* 圆角为10px */
+    overflow: auto; /* 防止内容溢出 */
+    text-align: center; /* 文字居中对齐 */
+}
+```
+
+在上述代码中：
+
+- `display: flex;` 将`.task-container`定义为一个Flexbox容器。
+- `flex-direction: column;` 将子项排列成一列。
+- `justify-content: center;` 将子项在主轴（纵轴）上居中对齐。
+- `align-items: center;` 将子项在交叉轴（横轴）上居中对齐。
+
+### 5. 示例代码与详解
+
+以下是完整的CSS代码示例，以及在实验设计中的具体应用。
+
+```css
+/* 重置一些默认样式 */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+/* 样式化任务容器 */
+.task-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 1600px;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 10px;
+    overflow: auto;
     text-align: center;
 }
 
-/* 设置段落的字体大小和颜色 */
-p {
+/* 按钮样式 */
+button {
+    padding: 10px 20px;
+    margin-top: 20px;
     font-size: 16px;
-    color: #666;
-}
-```
-
-### 弹性盒子（Flexbox）
-
-弹性盒子（Flexbox）是 CSS3 中的一种布局模式，它可以使复杂的布局结构变得更加简单和灵活。Flexbox 布局通过将容器的子元素按行或列对齐和分布，可以轻松实现各种常见的布局需求，例如居中对齐、等宽排列等。
-
-#### Flexbox 的基本概念
-
-- **Flex 容器**：包含 flex 项目的父元素。
-- **Flex 项目**：被直接包含在 flex 容器中的元素。
-
-#### 简单的 Flexbox 示例
-
-##### HTML 文件（`index.html`）
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flexbox 示例</title>
-    <link rel="stylesheet" href="styles.css"> <!-- 引入外部CSS文件 -->
-</head>
-<body>
-    <div class="flex-container">
-        <div class="flex-item">Item 1</div>
-        <div class="flex-item">Item 2</div>
-        <div class="flex-item">Item 3</div>
-    </div>
-</body>
-</html>
-```
-
-##### CSS 文件（`styles.css`）
-
-```css
-/* 设置 Flex 容器的样式 */
-.flex-container {
-    display: flex; /* 启用弹性盒子布局 */
-    justify-content: center; /* 水平居中对齐 */
-    align-items: center; /* 垂直居中对齐 */
-    height: 100vh; /* 设置容器高度为视口高度 */
-    background-color: #f0f0f0;
-}
-
-/* 设置 Flex 项目的样式 */
-.flex-item {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
     background-color: #007BFF;
     color: white;
-    padding: 20px;
-    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* 确保按钮和文本输入居中且响应式 */
+.jspsych-btn, .jspsych-html-button-response-button, .jspsych-survey-text input {
+    display: block;
+    margin: 10px auto;
+    font-size: 18px;
+}
+
+.jspsych-btn, .jspsych-html-button-response-button {
+    width: 200px;
+}
+
+.jspsych-survey-text input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+/* 样式化数学试验中的问题和选项 */
+.jspsych-html-button-response-stimulus {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.jspsych-html-button-response-button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+/* 确保视频响应式 */
+video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* 居中滑块响应的刺激 */
+#jspsych-html-slider-response-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px 0;
+}
+
+#jspsych-html-slider-response-stimulus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
 ```
-
-#### 解释
-
-1. **Flex 容器**
-  - `display: flex;`：将容器定义为 Flex 容器。
-  - `justify-content: center;`：在主轴（水平方向）上居中对齐项目。
-  - `align-items: center;`：在交叉轴（垂直方向）上居中对齐项目。
-  - `height: 100vh;`：将容器高度设置为视口高度。
-
-2. **Flex 项目**
-  - `background-color: #007BFF;`：设置背景颜色。
-  - `color: white;`：设置文本颜色为白色。
-  - `padding: 20px;`：设置内边距。
-  - `margin: 10px;`：设置外边距。
-  - `border-radius: 5px;`：设置圆角边框。
-
-通过这些简单的 CSS 设置，Flexbox 可以轻松实现响应式布局，使网页在不同设备上都能有良好的表现。
 
 
 ##  java script文件
