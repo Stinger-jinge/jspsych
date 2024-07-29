@@ -55,7 +55,7 @@
 **jsPsych 库**：
 
 jsPsych 提供了丰富的插件库，可以方便地实现各种实验功能。每个插件都有详细的文档和使用示例，建议直接访问 jsPsych 官网获取最新信息和代码。你可以在 jsPsych 的 [官方文档](https://www.jspsych.org/) 中找到所有插件的详细说明和使用示例。如下图：
-![jspsych官网插件](/imgs/2024-07-29/QM5JPgivKsYhPSvh.png)
+![jspsych官网插件](./1.png)
 
   
 
