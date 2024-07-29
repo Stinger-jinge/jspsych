@@ -785,7 +785,6 @@ jspsych-html-slider-response-wrapper {
 - **padding**: 设置内边距。
 
 这些CSS规则定义了页面和特定元素的样式，通过合理利用Flex布局和其他CSS属性，使页面元素在不同设备上都能很好地显示和交互。
-```
 
 ## 结语
 以上是jsPsych实验设计的基本教程，通过这些内容，你应该能够创建一个简单的jsPsych实验，并掌握一些基本的HTML、CSS和JavaScript技能。
